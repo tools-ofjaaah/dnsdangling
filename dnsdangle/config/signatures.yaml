@@ -1,0 +1,149 @@
+# Cloud Service Signatures for DNS Dangling Detection
+
+signatures:
+  - name: "AWS S3"
+    cname_pattern: ".*\\.s3\\.amazonaws\\.com$"
+    http_status_expect: [404]
+    http_body_expect: ["NoSuchBucket", "ResourceNotFound"]
+    severity: "Critical"
+    cvss_vector: "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+
+  - name: "AWS S3 (alternative)"
+    cname_pattern: ".*\\.s3-[a-z0-9]+\\.amazonaws\\.com$"
+    http_status_expect: [404]
+    http_body_expect: ["NoSuchBucket", "ResourceNotFound"]
+    severity: "Critical"
+    cvss_vector: "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+
+  - name: "AWS CloudFront"
+    cname_pattern: ".*\\.cloudfront\\.net$"
+    http_status_expect: [403, 404]
+    http_body_expect: ["ERROR", "The request could not be satisfied"]
+    severity: "High"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+
+  - name: "Azure Blob Storage"
+    cname_pattern: ".*\\.blob\\.core\\.windows\\.net$"
+    http_status_expect: [400, 404]
+    http_body_expect: ["InvalidUri", "ResourceNotFound"]
+    severity: "High"
+    cvss_vector: "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+
+  - name: "GitHub Pages"
+    cname_pattern: ".*\\.github\\.io$"
+    http_status_expect: [404]
+    http_body_expect: ["Page not found", "There isn't a GitHub Pages site here"]
+    severity: "High"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+
+  - name: "Heroku"
+    cname_pattern: ".*\\.herokuapp\\.com$"
+    http_status_expect: [503, 200]
+    http_body_expect: ["no-such-app", "herokucdn", "She's on break", "Application error"]
+    severity: "High"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+
+  - name: "Shopify"
+    cname_pattern: ".*\\.myshopify\\.com$"
+    http_status_expect: [200]
+    http_body_expect: ["is currently unavailable", "Sorry, this shop", "This shop is currently unavailable"]
+    severity: "High"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N"
+
+  - name: "GitLab Pages"
+    cname_pattern: ".*\\.gitlab\\.io$"
+    http_status_expect: [404]
+    http_body_expect: ["Page Not Found", "404"]
+    severity: "High"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+
+  - name: "Bitbucket"
+    cname_pattern: ".*\\.bitbucket\\.io$"
+    http_status_expect: [404]
+    http_body_expect: ["Repository not found", "404"]
+    severity: "Medium"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+
+  - name: "Squarespace"
+    cname_pattern: ".*\\.squarespace\\.com$"
+    http_status_expect: [404]
+    http_body_expect: ["Site not found", "squarespace", "404"]
+    severity: "Medium"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+
+  - name: "WP Engine"
+    cname_pattern: ".*\\.wpengine\\.com$"
+    http_status_expect: [404]
+    http_body_expect: ["Site not found", "wpengine"]
+    severity: "Medium"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+
+  - name: "Fastly CDN"
+    cname_pattern: ".*\\.fastly\\.net$"
+    http_status_expect: [403, 404]
+    http_body_expect: ["Fastly", "Error", "Forbidden"]
+    severity: "Medium"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+
+  - name: "Netlify"
+    cname_pattern: ".*\\.netlify\\.app$"
+    http_status_expect: [404]
+    http_body_expect: ["Not found", "netlify"]
+    severity: "High"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+
+  - name: "Vercel"
+    cname_pattern: ".*\\.vercel\\.app$"
+    http_status_expect: [404]
+    http_body_expect: ["Not Found", "vercel"]
+    severity: "High"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+
+  - name: "Cloudflare Pages"
+    cname_pattern: ".*\\.pages\\.dev$"
+    http_status_expect: [404]
+    http_body_expect: ["Project not found", "pages.dev"]
+    severity: "Medium"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+
+  - name: "ReadMe"
+    cname_pattern: ".*\\.readme\\.io$"
+    http_status_expect: [404]
+    http_body_expect: ["Project not found", "readme"]
+    severity: "Medium"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+
+  - name: "Surge"
+    cname_pattern: ".*\\.surge\\.sh$"
+    http_status_expect: [404]
+    http_body_expect: ["Surge", "not found"]
+    severity: "Medium"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+
+  - name: "GitHub (custom domain)"
+    cname_pattern: "^[^.]+\\.github\\.io$"
+    http_status_expect: [404]
+    http_body_expect: ["Page not found"]
+    severity: "High"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+
+  - name: "Pantheon"
+    cname_pattern: ".*\\.pantheonsite\\.io$"
+    http_status_expect: [404]
+    http_body_expect: ["404", "Pantheon"]
+    severity: "Medium"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N"
+
+  - name: "WordPress.com"
+    cname_pattern: ".*\\.wordpress\\.com$"
+    http_status_expect: [404]
+    http_body_expect: ["Do you want to register", "404"]
+    severity: "Low"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+
+  - name: "Cargo Collective"
+    cname_pattern: ".*\\.cargocdns\\.io$"
+    http_status_expect: [404]
+    http_body_expect: ["not found", "Cargo"]
+    severity: "Low"
+    cvss_vector: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"

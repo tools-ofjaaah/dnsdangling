@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141420"/>
+    </linearGradient>
+    <linearGradient id="terminalBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#0f0f1a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main Background -->
+  <rect width="900" height="500" fill="url(#bg)"/>
+
+  <!-- Terminal Window -->
+  <rect x="15" y="15" width="870" height="470" rx="8" fill="url(#terminalBg)" stroke="#333355" stroke-width="2"/>
+
+  <!-- Terminal Header Bar -->
+  <rect x="15" y="15" width="870" height="35" rx="8" fill="#16213e"/>
+  <rect x="15" y="42" width="870" height="8" fill="#16213e"/>
+
+  <!-- Window Controls -->
+  <circle cx="40" cy="32" r="6" fill="#ff5f56"/>
+  <circle cx="60" cy="32" r="6" fill="#ffbd2e"/>
+  <circle cx="80" cy="32" r="6" fill="#27ca40"/>
+
+  <!-- Title -->
+  <text x="435" y="38" text-anchor="middle" fill="#ffffff" font-family="'Courier New', monospace" font-size="13" font-weight="bold">
+    OFJAAAH TAKEOVER - DNS DANGLING SCANNER v2.0
+  </text>
+
+  <!-- Divider -->
+  <line x1="15" y1="50" x2="885" y2="50" stroke="#333355" stroke-width="1"/>
+
+  <!-- Command Output -->
+  <text x="30" y="75" fill="#888888" font-family="'Courier New', monospace" font-size="11">$ python3 dnsdangle_exploit.py sony.com</text>
+
+  <text x="30" y="105" fill="#888888" font-family="'Courier New', monospace" font-size="11">
+    <tspan fill="#00bfff">[*]</tspan>
+    <tspan fill="#ffffff"> Iniciando scan em </tspan>
+    <tspan fill="#ffbd2e">sony.com</tspan>
+    <tspan fill="#ffffff">...</tspan>
+  </text>
+
+  <text x="30" y="130" fill="#888888" font-family="'Courier New', monospace" font-size="11">
+    <tspan fill="#ffcc00">[*]</tspan>
+    <tspan fill="#ffffff"> Testando: </tspan>
+    <tspan fill="#ffbd2e">old-api.sony.com</tspan>
+  </text>
+
+  <text x="30" y="160" fill="#ff3333" font-family="'Courier New', monospace" font-size="12" font-weight="bold">
+    <tspan fill="#ff3333">[!!]</tspan>
+    <tspan fill="#ffffff"> Encontrado CNAME para S3: </tspan>
+    <tspan fill="#ff6b6b">old-api.sony.com.s3.amazonaws.com</tspan>
+  </text>
+
+  <text x="30" y="190" fill="#00ff00" font-family="'Courier New', monospace" font-size="12">
+    <tspan fill="#00ff00">[+]</tspan>
+    <tspan fill="#ffffff"> Bucket NAO EXISTE - </tspan>
+    <tspan fill="#ff3333" font-weight="bold">VULNERAVEL!</tspan>
+  </text>
+
+  <text x="30" y="225" fill="#00bfff" font-family="'Courier New', monospace" font-size="11">
+    <tspan fill="#00bfff">[*]</tspan>
+    <tspan fill="#ffffff"> Tentando explorar (takeover)...</tspan>
+  </text>
+
+  <text x="30" y="255" fill="#00ff00" font-family="'Courier New', monospace" font-size="11">
+    <tspan fill="#00ff00">[+]</tspan>
+    <tspan fill="#ffffff"> Bucket created!</tspan>
+  </text>
+
+  <text x="30" y="280" fill="#00ff00" font-family="'Courier New', monospace" font-size="11">
+    <tspan fill="#00ff00">[+]</tspan>
+    <tspan fill="#ffffff"> Block public access disabled on bucket</tspan>
+  </text>
+
+  <text x="30" y="305" fill="#00ff00" font-family="'Courier New', monospace" font-size="11">
+    <tspan fill="#00ff00">[+]</tspan>
+    <tspan fill="#ffffff"> Public bucket policy applied</tspan>
+  </text>
+
+  <text x="30" y="345" fill="#ff3333" font-family="'Courier New', monospace" font-size="14" font-weight="bold">
+    <tspan fill="#ff3333">[!!!]</tspan>
+    <tspan fill="#ffffff"> EXPLOIT SUCCESSFUL!</tspan>
+  </text>
+
+  <text x="30" y="375" fill="#ff6b6b" font-family="'Courier New', monospace" font-size="11">
+    <tspan fill="#ff3333">[!!!]</tspan>
+    <tspan fill="#ffffff"> Pagina de exploits: </tspan>
+    <tspan fill="#00bfff">https://old-api.sony.com.s3.amazonaws.com/index.html</tspan>
+  </text>
+
+  <!-- Finding Box -->
+  <rect x="30" y="395" width="840" height="60" rx="4" fill="none" stroke="#ff3333" stroke-width="1" stroke-dasharray="4,2"/>
+  <text x="45" y="418" fill="#ff3333" font-family="'Courier New', monospace" font-size="10">┌─ FINDING #1 ─────────────────────────────────────────────────────────────┐</text>
+  <text x="45" y="435" fill="#ff3333" font-family="'Courier New', monospace" font-size="10">│ 🔴 STATUS: TAKEOVER SUCCESSFUL | 🌐 old-api.sony.com | 🪣 old-api.sony.com        │</text>
+  <text x="45" y="450" fill="#888888" font-family="'Courier New', monospace" font-size="10">└────────────────────────────────────────────────────────────────────────────┘</text>
+
+  <!-- Footer -->
+  <line x1="15" y1="465" x2="885" y2="465" stroke="#333355" stroke-width="1"/>
+  <text x="450" y="480" text-anchor="middle" fill="#555555" font-family="'Courier New', monospace" font-size="9">
+    DNS Dangling Scanner v2.0 | Bug Bounty Tools | @OFJAAAH | github.com/tools-ofjaaah/dnsdangling
+  </text>
+
+</svg>

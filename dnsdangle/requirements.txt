@@ -1,0 +1,6 @@
+dnspython>=2.4.0
+aiohttp>=3.9.0
+colorama>=0.4.6
+PyYAML>=6.0
+beautifulsoup4>=4.12.0
+requests>=2.31.0
