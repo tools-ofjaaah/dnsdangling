@@ -4,3 +4,4 @@ colorama>=0.4.6
 PyYAML>=6.0
 beautifulsoup4>=4.12.0
 requests>=2.31.0
+boto3>=1.43.13
