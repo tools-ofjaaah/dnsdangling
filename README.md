@@ -158,3 +158,44 @@ MIT License - See LICENSE file for details.
 
 **OFJAAAH Takeover** - DNS Dangling Scanner v2.0
 Bug Bounty Tools by [@ofjaaah](https://github.com/ofjaaah)
+
+---
+
+<!-- github-classic-token-clone:start -->
+## Baixar este repositório usando um token GitHub
+
+### 1. Criar um Personal Access Token Classic
+
+1. No GitHub, abra **Settings** → **Developer settings** → **Personal access tokens** → **Tokens (classic)**.
+2. Clique em **Generate new token** → **Generate new token (classic)**.
+3. Informe um nome, defina uma data de expiração e selecione o escopo **`repo`** para acessar repositórios privados.
+4. Gere o token e copie-o imediatamente. O GitHub não mostrará o valor novamente.
+5. Se a organização usar SAML SSO, abra **Configure SSO** ao lado do token e autorize a organização `tools-ofjaaah`.
+
+> Nunca publique ou faça commit do token. Use apenas placeholders nos comandos e revogue o token quando ele não for mais necessário.
+
+### 2. Clonar o repositório
+
+Forma recomendada, sem colocar o token no comando:
+
+```bash
+git clone https://github.com/tools-ofjaaah/dnsdangling.git
+```
+
+Quando solicitado, informe seu usuário do GitHub em **Username** e o token em **Password**.
+
+Forma direta, substituindo os placeholders:
+
+```bash
+git clone https://SEU_USUARIO:SEU_TOKEN@github.com/tools-ofjaaah/dnsdangling.git
+cd dnsdangling
+```
+
+> A forma direta pode deixar o token no histórico do terminal e no arquivo `.git/config`. Depois do clone, remova-o da URL salva:
+
+```bash
+git remote set-url origin https://github.com/tools-ofjaaah/dnsdangling.git
+```
+
+Para revogar o token, acesse **Settings** → **Developer settings** → **Personal access tokens** → **Tokens (classic)** e clique em **Delete**.
+<!-- github-classic-token-clone:end -->
